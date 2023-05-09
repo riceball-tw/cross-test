@@ -1,3 +1,99 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --footerHeight: 100px;
+    --primary-color-50: #fcf5f0;
+    --primary-color-100: #f7e7dd;
+    --primary-color-200: #eecdba;
+    --primary-color-300: #d68161;
+    --primary-color-400: #d68161;
+    --primary-color-500: #ce6241;
+    --primary-color-600: #c04c36;
+    --primary-color-700: #9f3c2f;
+    --primary-color-800: #80322c;
+    --primary-color-900: #682b26;
+    --accent-color: 221 169 144;
+    --accent-color-hex: #e4ae93;
+}
+
+em {
+    color: var(--accent-color-hex);
+    font-style: normal;
+}
+
+ol li::marker {
+    font-size: 1.5em;
+    font-style: italic;
+}
+
+.gradient-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-size: 400% 400%;
+    animation: gradient 7s ease infinite;
+    z-index: -20;
+    min-height: 100vh;
+    mix-blend-mode: overlay;
+}
+
+.gradient-rainbow::after {
+    background: linear-gradient(
+        -45deg,
+        #ee7752,
+        #ff005c,
+        #f8d267,
+        #c9f556,
+        #244ff3,
+        #c084e3,
+        #5cc9c0,
+        #9fa0a0,
+        #ffffff,
+        black
+    );
+}
+
+.gradient-red::after {
+    background: linear-gradient(-45deg, #ffdeb400, #ff75611a, #ff005c, #9c1260, black);
+}
+
+.gradient-purple::after {
+    background: linear-gradient(-45deg, #e9a7ff, #e9a7ff, #9d48c8, #357ee1, black);
+}
+
+.gradient-aqua::after {
+    background: linear-gradient(-45deg, #00294f, #00294f, #0a5371, #28cdd3, black);
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+        opacity: 0;
+    }
+    50% {
+        background-position: 100% 50%;
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 0;
+        background-position: 0% 50%;
+    }
+}
+
+.glow {
+    content: attr(content);
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px hsl(0, 100%, 100%, 0.02);
+    }
+    to {
+        text-shadow: 0 0 2px currentColor;
+    }
+}

@@ -1,7 +1,13 @@
+import { BrowserRouter, useLocation } from 'react-router-dom';
+import { ThemeContextProvider } from '@/context/themeContext';
+import AnimatedRoutes from './components/AnimatedRoutes';
+
 export default function App() {
     return (
-        <div className="App">
-            <h1 className="bg-red-300 text-3xl font-bold underline">Hello world!</h1>
-        </div>
+        <BrowserRouter>
+            <ThemeContextProvider>
+                <AnimatedRoutes></AnimatedRoutes>
+            </ThemeContextProvider>
+        </BrowserRouter>
     );
 }
